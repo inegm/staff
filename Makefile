@@ -1,6 +1,6 @@
 TOP_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 .PHONY: tests
-.SILENT: checks black isort mypy ruff pylint tests build release package
+.SILENT: checks black isort mypy ruff pylint tests build release package publish
 
 checks: black isort mypy ruff pylint
 
@@ -40,8 +40,12 @@ tests:
 
 build: checks tests package
 
-release: checks tests package
+release: checks tests package publish
 
 package:
 	echo "- Building distribution ..."
 	python -m build .
+
+publish:
+	echo "- Publishing distribution to PyPI ..."
+	python -m twine upload -u $(PYPI_U) -p $(PYPI_P) dist/*
