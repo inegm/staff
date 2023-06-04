@@ -419,6 +419,19 @@ class MIDIPitch:
         return f"MIDIPitch(number={self.number}, bend={self.bend})"
 
     @property
+    def number_precise(self) -> float:
+        """The MIDI number with the bend as the fractional part of a float.
+
+        Returns:
+            The precise MIDI number including the bend.
+
+        Examples:
+            >>> MIDIPitch(60, bend=MIDIBend(100, bend_range=200)).number_precise
+            60.5
+        """
+        return self.number + (self.bend.bend / self.bend.bend_range)
+
+    @property
     def frequency(self) -> Frequency:
         """Convert MIDIPitch to Frequency.
 
