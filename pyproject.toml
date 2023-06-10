@@ -20,8 +20,14 @@ dynamic = ["dependencies", "version"]
 [project.scripts]
 staff = "staff.__main__:main"
 
+[tool.setuptools]
+include-package-data = true
+
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+mypkg = ["*.db"]
 
 [tool.setuptools.dynamic]
 dependencies = {file = "requirements.txt"}
