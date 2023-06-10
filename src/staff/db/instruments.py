@@ -1,8 +1,8 @@
 import sqlite3
 
+from staff import MIDIPitch
 from staff.db import DB_PATH
 from staff.orchestration.instrument import Articulation, Instrument, InstrumentRange
-from staff import MIDIPitch
 
 
 def create_tables(db_path: str = DB_PATH) -> None:
