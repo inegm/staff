@@ -1,4 +1,4 @@
-from typing import Optional
+# ruff: noqa: E501
 
 from staff.db import DB_PATH
 from staff.db.instruments import store_instrument
