@@ -35,3 +35,5 @@ plugins:
             annotations_path: brief
             show_bases: true
             show_docstring_examples: true
+markdown_extensions: 
+  - attr_list

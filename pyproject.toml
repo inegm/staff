@@ -42,3 +42,4 @@ ignore_missing_imports = false
 
 [tool.pytest.ini_options]
 doctest_optionflags = "NORMALIZE_WHITESPACE"
+testpaths = ["tests"]

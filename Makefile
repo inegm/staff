@@ -1,6 +1,6 @@
 TOP_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 .PHONY: tests
-.SILENT: checks black isort mypy ruff pylint tests build release package publish
+.SILENT: checks black isort mypy mypy-report ruff pylint tests tests-report build release package publish
 
 checks: black isort mypy ruff pylint
 
@@ -24,6 +24,10 @@ mypy:
 	echo "- Running mypy ..."
 	mypy --show-error-codes --check-untyped-defs src/staff
 
+mypy-report:
+	echo "- Running mypy and generating coverage report..."
+	mypy --html-report docs/cov/mypy --show-error-codes --check-untyped-defs src/staff
+
 ruff:
 	echo "- Running ruff ..."
 	ruff src/staff
@@ -34,9 +38,13 @@ pylint:
 
 tests:
 	echo "- Running doctests ..."
-	pytest -c pyproject.toml --maxfail 1 --cov --doctest-modules src/staff/
+	pytest -c pyproject.toml --maxfail 1 -vvv --cov --doctest-modules src/staff/
 	echo "- Running unit-tests ..."
-	pytest -c pyproject.toml --maxfail 1 --cov
+	pytest -c pyproject.toml --maxfail 1 -vvv --cov
+
+tests-report:
+	echo "- Running unit-tests and generating coverage report..."
+	pytest -c pyproject.toml --maxfail 1 --cov -vvv --cov-report html:docs/cov/tests --cov-report term --ignore tests
 
 build: checks tests package
 
