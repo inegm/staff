@@ -111,41 +111,84 @@ class Instrument:
             ...     name="Violin",
             ...     section="Strings",
             ...     range=InstrumentRange(
-            ...         bottom=MIDIPitch(55),
-            ...         top=MIDIPitch(103),
+            ...         bottom=MIDIPitch.from_string("G3"),
+            ...         top=MIDIPitch.from_string("C#7"),
             ...     ),
             ...     articulations=[],
             ...     is_continuous=True,
             ... )
-            >>> low_e = MIDIPitch.from_string("E1")
-            >>> target = MIDIPitch.from_string("E3")
-            >>> target == instrument.to_range(low_e, instrument.range.bottom)
+
+            >>> pitch = MIDIPitch.from_string("E1")
+            >>> close_to = MIDIPitch.from_string("E4")  # In range
+            >>> expected = MIDIPitch.from_string("E4")
+            >>> expected == instrument.to_range(pitch=pitch, close_to=close_to)
+            True
+
+            >>> pitch = MIDIPitch.from_string("E1")
+            >>> close_to = MIDIPitch.from_string("E7")  # Above range
+            >>> expected = MIDIPitch.from_string("E6")
+            >>> expected == instrument.to_range(pitch=pitch, close_to=close_to)
+            True
+
+            >>> pitch = MIDIPitch.from_string("E1")
+            >>> close_to = MIDIPitch.from_string("E3")  # Below range
+            >>> expected = MIDIPitch.from_string("E4")
+            >>> expected == instrument.to_range(pitch=pitch, close_to=close_to)
+            True
+
+            >>> pitch = MIDIPitch.from_string("G1")
+            >>> close_to = MIDIPitch.from_string("E4")
+            >>> expected = MIDIPitch.from_string("G4")
+            >>> expected == instrument.to_range(pitch=pitch, close_to=close_to)
+            True
+
+            >>> pitch = MIDIPitch.from_string("G1")
+            >>> close_to = MIDIPitch.from_string("E7")
+            >>> expected = MIDIPitch.from_string("G6")
+            >>> expected == instrument.to_range(pitch=pitch, close_to=close_to)
             True
         """
+        if self.in_range(close_to):
+            distance = pitch.pitch_class - close_to.pitch_class
+            if abs(distance) > (pitch.octave_divs / 2):
+                if distance > 0:
+                    distance = distance - pitch.octave_divs
+                else:
+                    distance = distance + pitch.octave_divs
+            number = close_to.number + distance
+            coerced_pitch = MIDIPitch(
+                number=number,
+                bend=pitch.bend,
+                diapason=pitch.diapason,
+                octave_divs=pitch.octave_divs,
+            )
+            if coerced_pitch < self.range.bottom:
+                return coerced_pitch.octave_up()
+            elif coerced_pitch > self.range.top:
+                return coerced_pitch.octave_down()
+            return coerced_pitch
+
+        if close_to < self.range.bottom:
+            number = self.range.bottom.number
+            while (number % pitch.octave_divs) != pitch.pitch_class:
+                number += 1
+            return MIDIPitch(
+                number=number,
+                bend=pitch.bend,
+                diapason=pitch.diapason,
+                octave_divs=pitch.octave_divs,
+            )
+
         if close_to > self.range.top:
-            close_to = self.range.top
-        elif close_to < self.range.bottom:
-            close_to = self.range.bottom
-
-        distance = abs(pitch.pitch_class - close_to.pitch_class)
-
-        if distance == 0:
-            coerced_number = close_to.number
-        elif distance < (pitch.octave_divs / 2):
-            coerced_number = close_to.number - distance
-            if coerced_number < self.range.bottom.number:
-                coerced_number = close_to.number + distance
-        else:
-            coerced_number = close_to.number + distance
-            if coerced_number > self.range.top.number:
-                coerced_number = close_to.number - distance
-
-        return MIDIPitch(
-            number=coerced_number,
-            bend=pitch.bend,
-            diapason=pitch.diapason,
-            octave_divs=pitch.octave_divs,
-        )
+            number = self.range.top.number
+            while (number % pitch.octave_divs) != pitch.pitch_class:
+                number -= 1
+            return MIDIPitch(
+                number=number,
+                bend=pitch.bend,
+                diapason=pitch.diapason,
+                octave_divs=pitch.octave_divs,
+            )
 
     def get_articulation(self, name: str) -> Articulation:
         """Get an articulation by name.
@@ -163,3 +206,9 @@ class Instrument:
             if articulation.name == name:
                 return articulation
         raise ValueError(f"Articulation '{name}' does not exist.")
+
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testmod()
