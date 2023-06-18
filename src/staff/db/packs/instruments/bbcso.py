@@ -1,4 +1,5 @@
 # ruff: noqa: E501
+# pylint: disable=line-too-long
 
 from staff.db import DB_PATH
 from staff.db.instruments import store_instrument
@@ -13,7 +14,7 @@ def populate_instruments(db_path: str = DB_PATH) -> None:
         db_path: The path to the database.
     """
     instruments = [
-        # Strings
+        # STRINGS
         #   Violins 1 Leader
         Instrument(
             name="Violins 1 Leader",
@@ -123,7 +124,7 @@ def populate_instruments(db_path: str = DB_PATH) -> None:
             is_continuous=True,
             abbreviation="Vln. 1 Ldr.",
             category="BBC Symphony Orchestra",
-            description="The leader of the first violin section of the BBC Symphony Orchestra.",
+            description="Usually the largest of the String sections, with the widest expected range. They sit to the left of the conductor and their principal player is referred to as the Orchestra 'leader'.",
         ),
         #   Violins 1
         Instrument(
@@ -258,7 +259,7 @@ def populate_instruments(db_path: str = DB_PATH) -> None:
             is_continuous=True,
             abbreviation="Vln. 1",
             category="BBC Symphony Orchestra",
-            description="The first violin section of the BBC Symphony Orchestra.",
+            description="Usually the largest of the String sections, with the widest expected range. They sit to the left of the conductor and their principal player is referred to as the Orchestra 'leader'.",
         ),
         #   Violins 2 Leader
         Instrument(
@@ -369,7 +370,7 @@ def populate_instruments(db_path: str = DB_PATH) -> None:
             is_continuous=True,
             abbreviation="Vln. 2 Ldr.",
             category="BBC Symphony Orchestra",
-            description="The leader of the second violin section of the BBC Symphony Orchestra.",
+            description="Exactly the same instruments as the 1st Violins, but in a slightly more 'supporting' role. These players are situated to the right of the 1st Violins, and the left of the Violas.",
         ),
         #   Violins 2
         Instrument(
@@ -504,7 +505,7 @@ def populate_instruments(db_path: str = DB_PATH) -> None:
             is_continuous=True,
             abbreviation="Vln. 2",
             category="BBC Symphony Orchestra",
-            description="The second violin section of the BBC Symphony Orchestra.",
+            description="Exactly the same instruments as the 1st Violins, but in a slightly more 'supporting' role. These players are situated to the right of the 1st Violins, and the left of the Violas.",
         ),
         #   Violas Leader
         Instrument(
@@ -615,7 +616,7 @@ def populate_instruments(db_path: str = DB_PATH) -> None:
             is_continuous=True,
             abbreviation="Vla. Ldr.",
             category="BBC Symphony Orchestra",
-            description="The leader of the viola section of the BBC Symphony Orchestra.",
+            description="Similar in shape, but much larger in size than a Violin. These sit straight ahead and slightly to the right of the conductor. They often play the simpler more 'pedalling' harmonic lines.",
         ),
         #   Violas
         Instrument(
@@ -750,7 +751,7 @@ def populate_instruments(db_path: str = DB_PATH) -> None:
             is_continuous=True,
             abbreviation="Vla.",
             category="BBC Symphony Orchestra",
-            description="The viola section of the BBC Symphony Orchestra.",
+            description="Similar in shape, but much larger in size than a Violin. These sit straight ahead and slightly to the right of the conductor. They often play the simpler more 'pedalling' harmonic lines.",
         ),
         #   Celli Leader
         Instrument(
@@ -861,7 +862,7 @@ def populate_instruments(db_path: str = DB_PATH) -> None:
             is_continuous=True,
             abbreviation="Vc. Ldr.",
             category="BBC Symphony Orchestra",
-            description="The leader of the cello section of the BBC Symphony Orchestra.",
+            description="Arguably the most versatile of the String instruments, with a huge range from very low to heartbreaking highs. They sit to the right of the conductor and in front of the Basses.",
         ),
         #   Celli
         Instrument(
@@ -996,7 +997,7 @@ def populate_instruments(db_path: str = DB_PATH) -> None:
             is_continuous=True,
             abbreviation="Vc.",
             category="BBC Symphony Orchestra",
-            description="The cello section of the BBC Symphony Orchestra.",
+            description="Arguably the most versatile of the String instruments, with a huge range from very low to heartbreaking highs. They sit to the right of the conductor and in front of the Basses.",
         ),
         #   Bass Leader
         Instrument(
@@ -1107,15 +1108,15 @@ def populate_instruments(db_path: str = DB_PATH) -> None:
             is_continuous=True,
             abbreviation="Cb. Ldr.",
             category="BBC Symphony Orchestra",
-            description="The leader of the double bass section of the BBC Symphony Orchestra.",
+            description="Huge and monstrous instruments that sit to the right of the conductor and behind the Cellos. These all had the low C extension, hence the range.",
         ),
         #   Basses
         Instrument(
             name="Basses",
             section="Strings",
             range=InstrumentRange(
-                bottom=MIDIPitch.from_string("C1"),
-                top=MIDIPitch.from_string("F#3"),
+                bottom=MIDIPitch.from_string("C0"),
+                top=MIDIPitch.from_string("F#2"),
             ),
             articulations=[
                 Articulation(
@@ -1242,9 +1243,9 @@ def populate_instruments(db_path: str = DB_PATH) -> None:
             is_continuous=True,
             abbreviation="Cb.",
             category="BBC Symphony Orchestra",
-            description="The double bass section of the BBC Symphony Orchestra.",
+            description="Huge and monstrous instruments that sit to the right of the conductor and behind the Cellos. These all had the low C extension, hence the range.",
         ),
-        # Brass
+        # BRASS
         #   Horn
         Instrument(
             name="Horn",
@@ -1336,7 +1337,7 @@ def populate_instruments(db_path: str = DB_PATH) -> None:
             is_continuous=False,
             abbreviation="Hn. Ldr.",
             category="BBC Symphony Orchestra",
-            description="The leader of the horn section of the BBC Symphony Orchestra.",
+            description="Horns are the most stately and noble of the brass family - similar in range and timbral diversity to the cello. Many would say that Horns are the principals of the brass choir.",
         ),
         #   Horns a4
         Instrument(
@@ -1429,7 +1430,7 @@ def populate_instruments(db_path: str = DB_PATH) -> None:
             is_continuous=False,
             abbreviation="Hn.",
             category="BBC Symphony Orchestra",
-            description="The horn section of the BBC Symphony Orchestra.",
+            description="Horns are the most stately and noble of the brass family - similar in range and timbral diversity to the cello. Many would say that Horns are the principals of the brass choir.",
         ),
         #   Trumpet
         Instrument(
@@ -1522,7 +1523,7 @@ def populate_instruments(db_path: str = DB_PATH) -> None:
             is_continuous=False,
             abbreviation="Tpt. Ldr.",
             category="BBC Symphony Orchestra",
-            description="The leader of the trumpet section of the BBC Symphony Orchestra.",
+            description="The Trumpets are the highest member of the Brass family. From plaintive and anthemic solo lines in it's mid range to blistering mariachi up in the top. Great in octave unisons with the Horns!",
         ),
         #   Trumpets a3
         Instrument(
@@ -1615,7 +1616,1397 @@ def populate_instruments(db_path: str = DB_PATH) -> None:
             is_continuous=False,
             abbreviation="Tpt.",
             category="BBC Symphony Orchestra",
-            description="The trumpet section of the BBC Symphony Orchestra.",
+            description="The Trumpets are the highest member of the Brass family. From plaintive and anthemic solo lines in it's mid range to blistering mariachi up in the top. Great in octave unisons with the Horns!",
+        ),
+        #   Tenor Trombone
+        Instrument(
+            name="Tenor Trombone",
+            section="Brass",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("G1"),
+                top=MIDIPitch.from_string("D5"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long cuivre",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Cuivre",
+                    description="A long, sustained articulation with a brassy tone.",
+                ),
+                Articulation(
+                    name="Long sfz",
+                    key_switch=MIDIPitch.from_string("F-1"),
+                    abbreviation="Sfz",
+                    description="A long, sustained articulation with a sudden, accented onset.",
+                ),
+                Articulation(
+                    name="Long flutter",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Flutter",
+                    description="A long, sustained articulation with a fluttering tone.",
+                ),
+                Articulation(
+                    name="Multi-tongue",
+                    key_switch=MIDIPitch.from_string("G-1"),
+                    abbreviation="Multi-tongue",
+                    description="A short, detached articulation with a fluttering tone produced by tonguing the reed multiple times.",
+                ),
+                Articulation(
+                    name="Long (muted)",
+                    key_switch=MIDIPitch.from_string("A#-1"),
+                    abbreviation="Long (muted)",
+                    description="A long, sustained articulation with a mute.",
+                ),
+                Articulation(
+                    name="Staccatisimo (muted)",
+                    key_switch=MIDIPitch.from_string("B-1"),
+                    abbreviation="Stacc. (muted)",
+                    description="A short, detached articulation with a very short duration and a mute.",
+                ),
+                Articulation(
+                    name="Marcato (muted)",
+                    key_switch=MIDIPitch.from_string("C0"),
+                    abbreviation="Marc. (muted)",
+                    description="A short, detached articulation with an accented tone and a mute.",
+                ),
+            ],
+            is_continuous=True,
+            abbreviation="Tbn. Ldr.",
+            category="BBC Symphony Orchestra",
+            description="The Tenor Trombone is a deeply versatile Brass instrument. Providing plenty of warmth and depth when played in the lower dynamics, and rasping tones in the higher.",
+        ),
+        #   Tenor Trombone a3
+        Instrument(
+            name="Tenor Trombones a3",
+            section="Brass",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("G1"),
+                top=MIDIPitch.from_string("D5"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long cuivre",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Cuivre",
+                    description="A long, sustained articulation with a brassy tone.",
+                ),
+                Articulation(
+                    name="Long sfz",
+                    key_switch=MIDIPitch.from_string("F-1"),
+                    abbreviation="Sfz",
+                    description="A long, sustained articulation with a sudden, accented onset.",
+                ),
+                Articulation(
+                    name="Long flutter",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Flutter",
+                    description="A long, sustained articulation with a fluttering tone.",
+                ),
+                Articulation(
+                    name="Multi-tongue",
+                    key_switch=MIDIPitch.from_string("G-1"),
+                    abbreviation="Multi-tongue",
+                    description="A short, detached articulation with a fluttering tone produced by tonguing the reed multiple times.",
+                ),
+                Articulation(
+                    name="Long (muted)",
+                    key_switch=MIDIPitch.from_string("A#-1"),
+                    abbreviation="Long (muted)",
+                    description="A long, sustained articulation with a mute.",
+                ),
+                Articulation(
+                    name="Staccatisimo (muted)",
+                    key_switch=MIDIPitch.from_string("B-1"),
+                    abbreviation="Stacc. (muted)",
+                    description="A short, detached articulation with a very short duration and a mute.",
+                ),
+                Articulation(
+                    name="Marcato (muted)",
+                    key_switch=MIDIPitch.from_string("C0"),
+                    abbreviation="Marc. (muted)",
+                    description="A short, detached articulation with an accented tone and a mute.",
+                ),
+            ],
+            is_continuous=True,
+            abbreviation="Tbn.",
+            category="BBC Symphony Orchestra",
+            description="The Tenor Trombone is a deeply versatile Brass instrument. Providing plenty of warmth and depth when played in the lower dynamics, and rasping tones in the higher.",
+        ),
+        #   Bass Trombone a2
+        Instrument(
+            name="Bass Trombone a2",
+            section="Brass",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("E1"),
+                top=MIDIPitch.from_string("G4"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long cuivre",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Cuivre",
+                    description="A long, sustained articulation with a brassy tone.",
+                ),
+                Articulation(
+                    name="Long sfz",
+                    key_switch=MIDIPitch.from_string("F-1"),
+                    abbreviation="Sfz",
+                    description="A long, sustained articulation with a sudden, accented onset.",
+                ),
+                Articulation(
+                    name="Long flutter",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Flutter",
+                    description="A long, sustained articulation with a fluttering tone.",
+                ),
+                Articulation(
+                    name="Multi-tongue",
+                    key_switch=MIDIPitch.from_string("G-1"),
+                    abbreviation="Multi-tongue",
+                    description="A short, detached articulation with a fluttering tone produced by tonguing the reed multiple times.",
+                ),
+                Articulation(
+                    name="Long (muted)",
+                    key_switch=MIDIPitch.from_string("A#-1"),
+                    abbreviation="Long (muted)",
+                    description="A long, sustained articulation with a mute.",
+                ),
+                Articulation(
+                    name="Staccatisimo (muted)",
+                    key_switch=MIDIPitch.from_string("B-1"),
+                    abbreviation="Stacc. (muted)",
+                    description="A short, detached articulation with a very short duration and a mute.",
+                ),
+                Articulation(
+                    name="Marcato (muted)",
+                    key_switch=MIDIPitch.from_string("C0"),
+                    abbreviation="Marc. (muted)",
+                    description="A short, detached articulation with an accented tone and a mute.",
+                ),
+            ],
+            is_continuous=True,
+            abbreviation="B. Tbn.",
+            category="BBC Symphony Orchestra",
+            description="Because of it's different bore size, the timbre of the Bass Trombone differs from the Tenor. Great for lower passages, but also in unison blend with the Tenor.",
+        ),
+        #   Contrabass Trombone
+        Instrument(
+            name="Contrabass Trombone",
+            section="Brass",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("E1"),
+                top=MIDIPitch.from_string("G4"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long cuivre",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Cuivre",
+                    description="A long, sustained articulation with a brassy tone.",
+                ),
+                Articulation(
+                    name="Long sfz",
+                    key_switch=MIDIPitch.from_string("F-1"),
+                    abbreviation="Sfz",
+                    description="A long, sustained articulation with a sudden, accented onset.",
+                ),
+                Articulation(
+                    name="Long flutter",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Flutter",
+                    description="A long, sustained articulation with a fluttering tone.",
+                ),
+                Articulation(
+                    name="Multi-tongue",
+                    key_switch=MIDIPitch.from_string("G-1"),
+                    abbreviation="Multi-tongue",
+                    description="A short, detached articulation with a fluttering tone produced by tonguing the reed multiple times.",
+                ),
+                Articulation(
+                    name="Long (muted)",
+                    key_switch=MIDIPitch.from_string("A#-1"),
+                    abbreviation="Long (muted)",
+                    description="A long, sustained articulation with a mute.",
+                ),
+                Articulation(
+                    name="Staccatisimo (muted)",
+                    key_switch=MIDIPitch.from_string("B-1"),
+                    abbreviation="Stacc. (muted)",
+                    description="A short, detached articulation with a very short duration and a mute.",
+                ),
+                Articulation(
+                    name="Marcato (muted)",
+                    key_switch=MIDIPitch.from_string("C0"),
+                    abbreviation="Marc. (muted)",
+                    description="A short, detached articulation with an accented tone and a mute.",
+                ),
+            ],
+            is_continuous=True,
+            abbreviation="B. Tbn.",
+            category="BBC Symphony Orchestra",
+            description="A lesser used, but no less interesting instrument. It requires huge amounts of breath so be careful when writing low and continuous drones!",
+        ),
+        #   Tuba
+        Instrument(
+            name="Tuba",
+            section="Brass",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("D1"),
+                top=MIDIPitch.from_string("E4"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long cuivre",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Cuivre",
+                    description="A long, sustained articulation with a brassy tone.",
+                ),
+                Articulation(
+                    name="Long sfz",
+                    key_switch=MIDIPitch.from_string("F-1"),
+                    abbreviation="Sfz",
+                    description="A long, sustained articulation with a sudden, accented onset.",
+                ),
+                Articulation(
+                    name="Long flutter",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Flutter",
+                    description="A long, sustained articulation with a fluttering tone.",
+                ),
+                Articulation(
+                    name="Multi-tongue",
+                    key_switch=MIDIPitch.from_string("G-1"),
+                    abbreviation="Multi-tongue",
+                    description="A short, detached articulation with a fluttering tone produced by tonguing the reed multiple times.",
+                ),
+            ],
+            is_continuous=False,
+            abbreviation="Tuba",
+            category="BBC Symphony Orchestra",
+            description="It doesn't get more noble than a Tuba. From super fat bottom end and chocolatey harmonic potential, to a rasping lion from the depths of hell.",
+        ),
+        #   Contrabass Tuba
+        Instrument(
+            name="Contrabass Tuba",
+            section="Brass",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("D1"),
+                top=MIDIPitch.from_string("E4"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long cuivre",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Cuivre",
+                    description="A long, sustained articulation with a brassy tone.",
+                ),
+                Articulation(
+                    name="Long sfz",
+                    key_switch=MIDIPitch.from_string("F-1"),
+                    abbreviation="Sfz",
+                    description="A long, sustained articulation with a sudden, accented onset.",
+                ),
+            ],
+            is_continuous=False,
+            abbreviation="C. Tuba",
+            category="BBC Symphony Orchestra",
+            description="Less articulate than its smaller cousin, the Contrabass Tuba is a true giant of the orchestra. Great for super low and monstrous long notes.",
+        ),
+        #   Cimbasso
+        Instrument(
+            name="Cimbasso",
+            section="Brass",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("E0"),
+                top=MIDIPitch.from_string("E3"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long cuivre",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Cuivre",
+                    description="A long, sustained articulation with a brassy tone.",
+                ),
+                Articulation(
+                    name="Long sfz",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Sfz",
+                    description="A long, sustained articulation with a sudden, accented onset.",
+                ),
+            ],
+            is_continuous=False,
+            abbreviation="Cimb.",
+            category="BBC Symphony Orchestra",
+            description="With much smaller bores (tubes) compared to the Tubas, the Cimbasso has greater definition, and is more complimentary than it's larger siblings, when blended with trombones.",
+        ),
+        # WOODWINDS
+        #   Piccolo
+        Instrument(
+            name="Piccolo",
+            section="Woodwinds",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("D5"),
+                top=MIDIPitch.from_string("C8"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Trill major 2nd",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a major 2nd above.",
+                ),
+                Articulation(
+                    name="Trill minor 2nd",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a minor 2nd above.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Tenuto",
+                    key_switch=MIDIPitch.from_string("F-1"),
+                    abbreviation="Ten.",
+                    description="A sustained articulation with a slight accent.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long flutter",
+                    key_switch=MIDIPitch.from_string("G-1"),
+                    abbreviation="Flutter",
+                    description="A long, sustained articulation with a fluttering tone.",
+                ),
+                Articulation(
+                    name="Multi-tongue",
+                    key_switch=MIDIPitch.from_string("G#-1"),
+                    abbreviation="Multi-tongue",
+                    description="A short, detached articulation with a fluttering tone produced by tonguing the reed multiple times.",
+                ),
+                Articulation(
+                    name="Rips",
+                    key_switch=MIDIPitch.from_string("A-1"),
+                    abbreviation="Rips",
+                    description="A sweep up to the target note.",
+                ),
+                Articulation(
+                    name="Falls",
+                    key_switch=MIDIPitch.from_string("A#-1"),
+                    abbreviation="Rips",
+                    description="A sweep down to the target note.",
+                ),
+            ],
+            is_continuous=False,
+            abbreviation="Picc.",
+            category="BBC Symphony Orchestra",
+            description="The Piccolo is a half sized Flute that plays an octave higher than written. The loudest and highest instrument in the orchestra, can cut through an entire orchestra with ease!",
+        ),
+        #   Flute
+        Instrument(
+            name="Flute",
+            section="Woodwinds",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("B3"),
+                top=MIDIPitch.from_string("C7"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Trill major 2nd",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a major 2nd above.",
+                ),
+                Articulation(
+                    name="Trill minor 2nd",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a minor 2nd above.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Tenuto",
+                    key_switch=MIDIPitch.from_string("F-1"),
+                    abbreviation="Ten.",
+                    description="A sustained articulation with a slight accent.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long flutter",
+                    key_switch=MIDIPitch.from_string("G-1"),
+                    abbreviation="Flutter",
+                    description="A long, sustained articulation with a fluttering tone.",
+                ),
+                Articulation(
+                    name="Multi-tongue",
+                    key_switch=MIDIPitch.from_string("G#-1"),
+                    abbreviation="Multi-tongue",
+                    description="A short, detached articulation with a fluttering tone produced by tonguing the reed multiple times.",
+                ),
+            ],
+            is_continuous=False,
+            abbreviation="Fl. Ldr.",
+            category="BBC Symphony Orchestra",
+            description="The C Flute is massively dynamic and versatile. Suitable for carrying sweet and lyrical melodies, or within section work. Try in unison with your 1st Violins!",
+        ),
+        #   Flutes a3
+        Instrument(
+            name="Flutes a3",
+            section="Woodwinds",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("B3"),
+                top=MIDIPitch.from_string("C7"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Trill major 2nd",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a major 2nd above.",
+                ),
+                Articulation(
+                    name="Trill minor 2nd",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a minor 2nd above.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Tenuto",
+                    key_switch=MIDIPitch.from_string("F-1"),
+                    abbreviation="Ten.",
+                    description="A sustained articulation with a slight accent.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long flutter",
+                    key_switch=MIDIPitch.from_string("G-1"),
+                    abbreviation="Flutter",
+                    description="A long, sustained articulation with a fluttering tone.",
+                ),
+                Articulation(
+                    name="Multi-tongue",
+                    key_switch=MIDIPitch.from_string("G#-1"),
+                    abbreviation="Multi-tongue",
+                    description="A short, detached articulation with a fluttering tone produced by tonguing the reed multiple times.",
+                ),
+            ],
+            is_continuous=False,
+            abbreviation="Fl.",
+            category="BBC Symphony Orchestra",
+            description="The C Flute is massively dynamic and versatile. Suitable for carrying sweet and lyrical melodies, or within section work. Try in unison with your 1st Violins!",
+        ),
+        #   Bass Flute
+        Instrument(
+            name="Bass Flute",
+            section="Woodwinds",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("C2"),
+                top=MIDIPitch.from_string("C4"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Trill major 2nd",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a major 2nd above.",
+                ),
+                Articulation(
+                    name="Trill minor 2nd",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a minor 2nd above.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Tenuto",
+                    key_switch=MIDIPitch.from_string("F-1"),
+                    abbreviation="Ten.",
+                    description="A sustained articulation with a slight accent.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long flutter",
+                    key_switch=MIDIPitch.from_string("G-1"),
+                    abbreviation="Flutter",
+                    description="A long, sustained articulation with a fluttering tone.",
+                ),
+            ],
+            is_continuous=False,
+            abbreviation="B. Fl.",
+            category="BBC Symphony Orchestra",
+            description="A special gem. The Bass Flute carries a beautiful velvety, earthy sound, expanding the flute family to the lower registers. Great for evoking mystery and depth in dramatic music.",
+        ),
+        #   Oboe
+        Instrument(
+            name="Oboe",
+            section="Woodwinds",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("B3"),
+                top=MIDIPitch.from_string("F6"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Trill major 2nd",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a major 2nd above.",
+                ),
+                Articulation(
+                    name="Trill minor 2nd",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a minor 2nd above.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Tenuto",
+                    key_switch=MIDIPitch.from_string("F-1"),
+                    abbreviation="Ten.",
+                    description="A sustained articulation with a slight accent.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long flutter",
+                    key_switch=MIDIPitch.from_string("G-1"),
+                    abbreviation="Flutter",
+                    description="A long, sustained articulation with a fluttering tone.",
+                ),
+                Articulation(
+                    name="Multi-tongue",
+                    key_switch=MIDIPitch.from_string("G#-1"),
+                    abbreviation="Multi-tongue",
+                    description="A short, detached articulation with a fluttering tone produced by tonguing the reed multiple times.",
+                ),
+            ],
+            is_continuous=False,
+            abbreviation="Ob. Ldr.",
+            category="BBC Symphony Orchestra",
+            description="The Oboe is a double-reed instrument that is less dynamic than other Woodwind cousins. It's a beautiful lyrical instrument with 'period' connotations, and also works great as a bright section texture.",
+        ),
+        #   Oboes a3
+        Instrument(
+            name="Oboes a3",
+            section="Woodwinds",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("B3"),
+                top=MIDIPitch.from_string("F6"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Trill major 2nd",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a major 2nd above.",
+                ),
+                Articulation(
+                    name="Trill minor 2nd",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a minor 2nd above.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Tenuto",
+                    key_switch=MIDIPitch.from_string("F-1"),
+                    abbreviation="Ten.",
+                    description="A sustained articulation with a slight accent.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long flutter",
+                    key_switch=MIDIPitch.from_string("G-1"),
+                    abbreviation="Flutter",
+                    description="A long, sustained articulation with a fluttering tone.",
+                ),
+                Articulation(
+                    name="Multi-tongue",
+                    key_switch=MIDIPitch.from_string("G#-1"),
+                    abbreviation="Multi-tongue",
+                    description="A short, detached articulation with a fluttering tone produced by tonguing the reed multiple times.",
+                ),
+            ],
+            is_continuous=False,
+            abbreviation="Ob.",
+            category="BBC Symphony Orchestra",
+            description="The Oboe is a double-reed instrument that is less dynamic than other Woodwind cousins. It's a beautiful lyrical instrument with 'period' connotations, and also works great as a bright section texture.",
+        ),
+        #   Cor Anglais
+        Instrument(
+            name="Cor Anglais",
+            section="Woodwinds",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("E3"),
+                top=MIDIPitch.from_string("A5"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Trill major 2nd",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a major 2nd above.",
+                ),
+                Articulation(
+                    name="Trill minor 2nd",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a minor 2nd above.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Tenuto",
+                    key_switch=MIDIPitch.from_string("F-1"),
+                    abbreviation="Ten.",
+                    description="A sustained articulation with a slight accent.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+            ],
+            is_continuous=False,
+            abbreviation="Cor. A.",
+            category="BBC Symphony Orchestra",
+            description="Also known as English Horn, and often mistaken for an Oboe. The Cor Anglais handles top lines just as well as the Oboe, but with a richer quality.",
+        ),
+        #   Clarinet
+        Instrument(
+            name="Clarinet",
+            section="Woodwinds",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("D3"),
+                top=MIDIPitch.from_string("E6"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Trill major 2nd",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a major 2nd above.",
+                ),
+                Articulation(
+                    name="Trill minor 2nd",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a minor 2nd above.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Tenuto",
+                    key_switch=MIDIPitch.from_string("F-1"),
+                    abbreviation="Ten.",
+                    description="A sustained articulation with a slight accent.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long flutter",
+                    key_switch=MIDIPitch.from_string("G-1"),
+                    abbreviation="Flutter",
+                    description="A long, sustained articulation with a fluttering tone.",
+                ),
+                Articulation(
+                    name="Multi-tongue",
+                    key_switch=MIDIPitch.from_string("G#-1"),
+                    abbreviation="Multi-tongue",
+                    description="A short, detached articulation with a fluttering tone produced by tonguing the reed multiple times.",
+                ),
+            ],
+            is_continuous=False,
+            abbreviation="Cl. Ldr.",
+            category="BBC Symphony Orchestra",
+            description="The Clarinet is a single reed instrument with a very regal tone. When used solo it can have a very period drama sound to it.",
+        ),
+        #   Clarinets a3
+        Instrument(
+            name="Clarinets a3",
+            section="Woodwinds",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("D3"),
+                top=MIDIPitch.from_string("E6"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Trill major 2nd",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a major 2nd above.",
+                ),
+                Articulation(
+                    name="Trill minor 2nd",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a minor 2nd above.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Tenuto",
+                    key_switch=MIDIPitch.from_string("F-1"),
+                    abbreviation="Ten.",
+                    description="A sustained articulation with a slight accent.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long flutter",
+                    key_switch=MIDIPitch.from_string("G-1"),
+                    abbreviation="Flutter",
+                    description="A long, sustained articulation with a fluttering tone.",
+                ),
+                Articulation(
+                    name="Multi-tongue",
+                    key_switch=MIDIPitch.from_string("G#-1"),
+                    abbreviation="Multi-tongue",
+                    description="A short, detached articulation with a fluttering tone produced by tonguing the reed multiple times.",
+                ),
+            ],
+            is_continuous=False,
+            abbreviation="Cl.",
+            category="BBC Symphony Orchestra",
+            description="The Clarinet is a single reed instrument with a very regal tone. When used solo it can have a very period drama sound to it.",
+        ),
+        #   Bass Clarinet
+        Instrument(
+            name="Bass Clarinet",
+            section="Woodwinds",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("Bb1"),
+                top=MIDIPitch.from_string("E5"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Trill major 2nd",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a major 2nd above.",
+                ),
+                Articulation(
+                    name="Trill minor 2nd",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a minor 2nd above.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("F-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long flutter",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Flutter",
+                    description="A long, sustained articulation with a fluttering tone.",
+                ),
+            ],
+            is_continuous=False,
+            abbreviation="B. Cl.",
+            category="BBC Symphony Orchestra",
+            description="This instrument has an extraordinary sonic switch when played quiet; smooth and rich. Played loud and short it rasps almost like a synth.",
+        ),
+        #   Contrabass Clarinet
+        Instrument(
+            name="Contrabass Clarinet",
+            section="Woodwinds",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("Bb0"),
+                top=MIDIPitch.from_string("C4"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Trill major 2nd",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a major 2nd above.",
+                ),
+                Articulation(
+                    name="Trill minor 2nd",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a minor 2nd above.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long flutter",
+                    key_switch=MIDIPitch.from_string("G-1"),
+                    abbreviation="Flutter",
+                    description="A long, sustained articulation with a fluttering tone.",
+                ),
+            ],
+            is_continuous=False,
+            abbreviation="C. Cl.",
+            category="BBC Symphony Orchestra",
+            description="Far less common, and very difficult to play, this immensely rich instrument can sit under your double basses adding complexity in the undertones.",
+        ),
+        #   Basson
+        Instrument(
+            name="Basson",
+            section="Woodwinds",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("Bb1"),
+                top=MIDIPitch.from_string("D5"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Trill major 2nd",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a major 2nd above.",
+                ),
+                Articulation(
+                    name="Trill minor 2nd",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a minor 2nd above.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Tenuto",
+                    key_switch=MIDIPitch.from_string("F-1"),
+                    abbreviation="Ten.",
+                    description="A sustained articulation with a slight accent.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long flutter",
+                    key_switch=MIDIPitch.from_string("G-1"),
+                    abbreviation="Flutter",
+                    description="A long, sustained articulation with a fluttering tone.",
+                ),
+            ],
+            is_continuous=False,
+            abbreviation="Bsn. Ldr.",
+            category="BBC Symphony Orchestra",
+            description="The Bassoon is yet another versatile instrument that is often painted into a staccato comedy corner. As Stravinsky proved with 'The Rite of Spring', it can be hauntingly melodic.",
+        ),
+        #   Bassons a3
+        Instrument(
+            name="Bassons a3",
+            section="Woodwinds",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("Bb1"),
+                top=MIDIPitch.from_string("D5"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Trill major 2nd",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a major 2nd above.",
+                ),
+                Articulation(
+                    name="Trill minor 2nd",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a minor 2nd above.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Tenuto",
+                    key_switch=MIDIPitch.from_string("F-1"),
+                    abbreviation="Ten.",
+                    description="A sustained articulation with a slight accent.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long flutter",
+                    key_switch=MIDIPitch.from_string("G-1"),
+                    abbreviation="Flutter",
+                    description="A long, sustained articulation with a fluttering tone.",
+                ),
+            ],
+            is_continuous=False,
+            abbreviation="Bsn.",
+            category="BBC Symphony Orchestra",
+            description="The Bassoon is yet another versatile instrument that is often painted into a staccato comedy corner. As Stravinsky proved with 'The Rite of Spring', it can be hauntingly melodic.",
+        ),
+        #   Contrabasson
+        Instrument(
+            name="Contrabasson",
+            section="Woodwinds",
+            range=InstrumentRange(
+                bottom=MIDIPitch.from_string("C1"),
+                top=MIDIPitch.from_string("Bb3"),
+            ),
+            articulations=[
+                Articulation(
+                    name="Legato",
+                    key_switch=MIDIPitch.from_string("C-1"),
+                    abbreviation="Leg.",
+                    description="A smooth, connected articulation.",
+                ),
+                Articulation(
+                    name="Long",
+                    key_switch=MIDIPitch.from_string("C#-1"),
+                    abbreviation="Long",
+                    description="A long, sustained articulation.",
+                ),
+                Articulation(
+                    name="Trill major 2nd",
+                    key_switch=MIDIPitch.from_string("D-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a major 2nd above.",
+                ),
+                Articulation(
+                    name="Trill minor 2nd",
+                    key_switch=MIDIPitch.from_string("D#-1"),
+                    abbreviation="Trill",
+                    description="A trill between the note and the note a minor 2nd above.",
+                ),
+                Articulation(
+                    name="Staccatisimo",
+                    key_switch=MIDIPitch.from_string("E-1"),
+                    abbreviation="Stacc.",
+                    description="A short, detached articulation with a very short duration.",
+                ),
+                Articulation(
+                    name="Marcato",
+                    key_switch=MIDIPitch.from_string("F#-1"),
+                    abbreviation="Marc.",
+                    description="A short, detached articulation with an accented tone.",
+                ),
+                Articulation(
+                    name="Long flutter",
+                    key_switch=MIDIPitch.from_string("G-1"),
+                    abbreviation="Flutter",
+                    description="A long, sustained articulation with a fluttering tone.",
+                ),
+            ],
+            is_continuous=False,
+            abbreviation="C. Bsn.",
+            category="BBC Symphony Orchestra",
+            description="Producing the lowest tones in the orchestra, this beast can go from rich bass qualities to pure low end horror that shakes the room.",
         ),
     ]
     for instrument in instruments:
