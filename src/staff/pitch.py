@@ -448,6 +448,19 @@ class MIDIPitch:
         cents = self.bend.cents
         return fhz.plus_cents(cents=cents)
 
+    @property
+    def pitch_class(self) -> int:
+        """The approximate pitch class of the pitch.
+
+        Note:
+            This is more utility than function. It uses the integer MIDI number
+            not the precise number that includes the pitch bend.
+
+        Returns:
+            The pitch class of the pitch.
+        """
+        return self.number % self.octave_divs
+
     @classmethod
     def from_string(cls, pitch: str, c4_number: int = 60) -> MIDIPitch:
         """Create a MIDIPitch from a string representations.
