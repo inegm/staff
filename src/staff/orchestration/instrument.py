@@ -179,16 +179,16 @@ class Instrument:
                 octave_divs=pitch.octave_divs,
             )
 
-        if close_to > self.range.top:
-            number = self.range.top.number
-            while (number % pitch.octave_divs) != pitch.pitch_class:
-                number -= 1
-            return MIDIPitch(
-                number=number,
-                bend=pitch.bend,
-                diapason=pitch.diapason,
-                octave_divs=pitch.octave_divs,
-            )
+        # if close_to > self.range.top:
+        number = self.range.top.number
+        while (number % pitch.octave_divs) != pitch.pitch_class:
+            number -= 1
+        return MIDIPitch(
+            number=number,
+            bend=pitch.bend,
+            diapason=pitch.diapason,
+            octave_divs=pitch.octave_divs,
+        )
 
     def get_articulation(self, name: str) -> Articulation:
         """Get an articulation by name.
