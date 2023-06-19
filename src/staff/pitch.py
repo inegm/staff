@@ -519,6 +519,20 @@ class MIDIPitch:
             octave -= 1
         return MIDIPitch((c4_number + pc_number) + (octave - 4) * 12)
 
+    def octave_up(self) -> MIDIPitch:
+        return Frequency(self.frequency.hertz * 2).to_midi(
+            midi_bend_range=self.bend.bend_range,
+            diapason=self.diapason,
+            octave_divs=self.octave_divs,
+        )
+
+    def octave_down(self) -> MIDIPitch:
+        return Frequency(self.frequency.hertz / 2).to_midi(
+            midi_bend_range=self.bend.bend_range,
+            diapason=self.diapason,
+            octave_divs=self.octave_divs,
+        )
+
     def __gt__(self, other: MIDIPitch) -> bool:
         if not isinstance(other, MIDIPitch):
             raise TypeError(f"cannot compare MIDIPitch with type '{type(other)}'")
