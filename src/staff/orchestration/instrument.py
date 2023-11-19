@@ -68,6 +68,23 @@ class Instrument:
     category: str = "Default"
     description: str = ""
 
+    def __eq__(self, other: Instrument) -> bool:
+        return (self.name == other.name) and (self.category == other.category)
+
+    def __gt__(self, other: Instrument) -> bool:
+        """Greater, here, signifies being a conventionally higher voice."""
+        if self.range.bottom > other.range.bottom:
+            return True
+        elif self.range.top > other.range.top:
+            return True
+        elif self.range == other.range:
+            return self.name < other.name
+        else:
+            return False
+
+    def __hash__(self) -> int:
+        return hash(self.name + self.category)
+
     def __repr__(self) -> str:
         """Return a string representation of the instrument."""
         return (
