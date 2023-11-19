@@ -623,8 +623,8 @@ def populate_instruments(db_path: str = DB_PATH) -> None:
             name="Violas",
             section="Strings",
             range=InstrumentRange(
-                bottom=MIDIPitch.from_string("G3"),
-                top=MIDIPitch.from_string("C#7"),
+                bottom=MIDIPitch.from_string("C3"),
+                top=MIDIPitch.from_string("F#6"),
             ),
             articulations=[
                 Articulation(
