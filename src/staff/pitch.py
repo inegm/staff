@@ -418,6 +418,9 @@ class MIDIPitch:
     def __repr__(self):
         return f"MIDIPitch(number={self.number}, bend={self.bend})"
 
+    def __hash__(self) -> int:
+        return hash(self.number_precise)
+
     @property
     def number_precise(self) -> float:
         """The MIDI number with the bend as the fractional part of a float.
@@ -460,6 +463,34 @@ class MIDIPitch:
             The pitch class of the pitch.
         """
         return self.number % self.octave_divs
+
+    @property
+    def pitch_class_precise(self) -> MIDIPitch:
+        """The lowest octave equivalent of the precise pitch.
+
+        Note:
+            This is recommended for microtonal pitches.
+
+        Returns:
+            The `MIDIPitch` which is the lowest octave equivalent.
+        """
+        lower_bound = MIDIPitch(0).frequency.hertz
+        frequency = self.frequency.hertz
+        candidate = frequency / 2.0
+        if candidate < lower_bound:
+            return Frequency(hertz=frequency).to_midi(
+                midi_bend_range=self.bend.bend_range,
+                diapason=self.diapason,
+                octave_divs=self.octave_divs,
+            )
+        while candidate >= lower_bound:
+            frequency = candidate
+            candidate = frequency / 2.0
+        return Frequency(hertz=frequency).to_midi(
+            midi_bend_range=self.bend.bend_range,
+            diapason=self.diapason,
+            octave_divs=self.octave_divs,
+        )
 
     @classmethod
     def from_string(cls, pitch: str, c4_number: int = 60) -> MIDIPitch:
