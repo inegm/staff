@@ -68,10 +68,10 @@ class Instrument:
     category: str = "Default"
     description: str = ""
 
-    def __eq__(self, other: Instrument) -> bool:
+    def __eq__(self, other) -> bool:
         return (self.name == other.name) and (self.category == other.category)
 
-    def __gt__(self, other: Instrument) -> bool:
+    def __gt__(self, other) -> bool:
         """Greater, here, signifies being a conventionally higher voice."""
         if self.range.bottom > other.range.bottom:
             return True

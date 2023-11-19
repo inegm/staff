@@ -1,7 +1,8 @@
 from __future__ import annotations
+
+import itertools as it
 from dataclasses import dataclass
 from functools import lru_cache
-import itertools as it
 from statistics import pstdev
 from typing import List, Tuple, Union
 
@@ -60,7 +61,7 @@ class VoicedChord:
         )
 
     def contains_crossing(self) -> bool:
-        pitch = -1
+        pitch: float = -1
         for voiced_pitch in sorted(self._voices, key=lambda v: v.instrument):
             new_pitch = voiced_pitch.pitch.number_precise
             if new_pitch < pitch:
