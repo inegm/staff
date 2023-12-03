@@ -4,7 +4,7 @@ twine
 # checks
 black
 isort
-mypy
+mypy[reports]
 pylint
 ruff
 # tests
