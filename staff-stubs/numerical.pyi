@@ -1,0 +1,3 @@
+"""Stub file for staff.numerical module."""
+
+def is_power_of_two(number: int) -> bool: ...
