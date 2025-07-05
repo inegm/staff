@@ -13,6 +13,7 @@ from staff.orchestration.voicing import (
     find_all_voicings,
     find_closest_voicing,
 )
+from staff.orchestration.voicing import VoicedChord, voice_pitches
 
 
 @total_ordering
