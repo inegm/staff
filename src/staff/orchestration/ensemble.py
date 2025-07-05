@@ -7,7 +7,12 @@ from typing import List, Union
 
 from staff import MIDIPitch
 from staff.orchestration.instrument import Instrument
-from staff.orchestration.voicing import VoicedChord, voice_pitches
+from staff.orchestration.voicing import (
+    VoicedChord,
+    voice_pitches,
+    find_all_voicings,
+    find_closest_voicing,
+)
 
 
 @total_ordering
@@ -128,9 +133,28 @@ class Ensemble:
         self,
         pitches: List[MIDIPitch],
         openness: float = 0.5,
-    ) -> Union[VoicedChord, None]:
+    ) -> VoicedChord:
         if (openness > 1.0) or (openness < 0.0):
             raise ValueError("spread must be between 0 and 1")
-        return voice_pitches(
+        chord = voice_pitches(
             pitches=pitches, instruments=self.instruments, spread=openness
+        )
+        if not chord:
+            raise ValueError("could not voice chord")
+        return chord
+
+    def voice_lead(
+        self,
+        voicing: VoicedChord,
+        target: List[MIDIPitch],
+    ) -> VoicedChord:
+        _pitches = tuple(target)
+        _instruments = tuple(self.instruments)
+        target_candidates = tuple(find_all_voicings(
+            pitches=_pitches,
+            instruments=_instruments,
+        ))
+        return find_closest_voicing(
+            voicing=voicing,
+            candidates=target_candidates,
         )
