@@ -74,3 +74,7 @@ make package       # Build distribution packages
 - Empty requirements.txt - dependencies managed dynamically
 - Entry point: `staff` command-line tool
 - Documentation: https://inegm.github.io/staff/
+
+## Code Guidelines
+
+- Never modify existing tests unless explicitly asked to do so

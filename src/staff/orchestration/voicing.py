@@ -87,6 +87,7 @@ def voice_pitches(
     spread_ix = max(0, min(len(voicings) - 1, int(spread * len(voicings))))
     return voicings[spread_ix]
 
+
 @lru_cache
 def find_closest_voicing(
     voicing: VoicedChord,
@@ -106,18 +107,23 @@ def find_closest_voicing(
         raise ValueError("could not solve the voice leading")
     return solution
 
+
 def _calculate_voicing_distance(
-        first: VoicedChord,
-        second: VoicedChord,
+    first: VoicedChord,
+    second: VoicedChord,
 ) -> float:
     if len(first.voices) != len(second.voices):
         raise ValueError("`first` and `second` must have an equal number of voices")
-    return sum((
-        abs(
-            max(v.pitch.number_precise, w.pitch.number_precise) - 
-            min(v.pitch.number_precise, w.pitch.number_precise))
-        for v, w in zip(first.voices, second.voices)
-    ))
+    return sum(
+        (
+            abs(
+                max(v.pitch.number_precise, w.pitch.number_precise)
+                - min(v.pitch.number_precise, w.pitch.number_precise)
+            )
+            for v, w in zip(first.voices, second.voices)
+        )
+    )
+
 
 @lru_cache
 def find_all_voicings(

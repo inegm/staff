@@ -3,17 +3,16 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import Enum
 from functools import total_ordering
-from typing import List, Union
+from typing import List
 
 from staff import MIDIPitch
 from staff.orchestration.instrument import Instrument
 from staff.orchestration.voicing import (
     VoicedChord,
-    voice_pitches,
     find_all_voicings,
     find_closest_voicing,
+    voice_pitches,
 )
-from staff.orchestration.voicing import VoicedChord, voice_pitches
 
 
 @total_ordering
@@ -151,10 +150,12 @@ class Ensemble:
     ) -> VoicedChord:
         _pitches = tuple(target)
         _instruments = tuple(self.instruments)
-        target_candidates = tuple(find_all_voicings(
-            pitches=_pitches,
-            instruments=_instruments,
-        ))
+        target_candidates = tuple(
+            find_all_voicings(
+                pitches=_pitches,
+                instruments=_instruments,
+            )
+        )
         return find_closest_voicing(
             voicing=voicing,
             candidates=target_candidates,
